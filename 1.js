@@ -218,9 +218,11 @@ console.log(bucket_sort(arr,6,10));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46
 
 
 
-/*方法说明：桶排序
-@param  array 数组
-@param  num   桶的数量*/
+/** 
+* @description 实现一个观察者模式方法说明：桶排序
+* @param  array 数组
+* @param  num   桶的数量
+*/
 /* function bucketSort(array, num) {
   if (array.length <= 1) {
       return array;
@@ -296,8 +298,9 @@ ajax('get', 'test.json').then((res) => {
  */
 
 /**
-* describe: 实现一个观察者模式
+ * @description实现一个观察者模式
 */
+
 /* let data = {
   hero: '凤凰',
   count: '1'
@@ -334,7 +337,7 @@ let total=[1, 2, 3, 4].reduce((total, value) => { return total + value }, 0)
 console.log(total,9090)
  */
 
-let taskQueue = [
+/* let taskQueue = [
   () => {
     console.log('task1 start')
     console.log('task1 end')
@@ -355,6 +358,7 @@ const performUnitWork = () => {
 }
 
 const workloop = (deadline) => {
+  console.log('deadline->',deadline)
   console.log(`此帧的剩余时间为: ${deadline.timeRemaining()}`)
   // 如果此帧剩余时间大于0或者已经到了定义的超时时间（上文定义了timeout时间为1000，到达时间时必须强制执行），且当时存在任务，则直接执行这个任务
   // 如果没有剩余时间，则应该放弃执行任务控制权，把执行权交还给浏览器
@@ -369,5 +373,39 @@ const workloop = (deadline) => {
 }
 
 requestIdleCallback(workloop, { timeout: 1000 }) 
+ */
+
+
+/* requestIdleCallback = (callback,timeoutObj) => {
+  setTimeout(callback({
+    timeRemaining() {
+      return Infinity
+    },
+    didTimeout:timeoutObj<100
+    
+  }),16)
+}
+
+
+ const CB = (deadline)=>{
+  console.log('deadline-->',deadline.didTimeout)
+  console.log('deadlinetimeRemaining-->',deadline.timeRemaining())
+}
+requestIdleCallback(CB,{ timeout: 1000 }) */
+
+
+/**
+ * @description 利用requestAnimationFrame 实现宽度增加
+*/
+
+/* function run(){
+let d1 = document.querySelector('.d1')
+console.log(11,d1.offsetWidth)
+  d1.style.width = d1.offsetWidth + 10 +'px'
+  if(d1.offsetWidth<500){
+    window.requestAnimationFrame(run)
+  }
+}
+run() */
 
 
